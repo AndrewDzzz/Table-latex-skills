@@ -166,4 +166,4 @@ It is a focused skill package for producing stronger LaTeX tables with one coher
 
 ## License
 
-No license file has been added yet.
+This repository is released under the MIT License.
