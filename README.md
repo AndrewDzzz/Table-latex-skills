@@ -103,6 +103,27 @@ You can use direct style requests such as:
 - `Restyle this LaTeX table to match mmmeri/fancy-latex-tables.`
 - `Make this benchmark table denser, but keep the MMERI look.`
 
+## Emphasis conventions
+
+For result tables, the repository recommends a simple and consistent emphasis policy:
+
+- use bold for the best value within a directly comparable metric group
+- use italics for the second-best directly comparable value
+- use bold for main headers and grouped headers when stronger hierarchy is needed
+- do not bold or italicize singleton values that are not part of a real comparison
+
+Typical helper macros look like this:
+
+```latex
+\newcommand{\tblhead}[1]{\textbf{#1}}
+\newcommand{\tblgroup}[1]{\textbf{#1}}
+\newcommand{\best}[1]{\textbf{#1}}
+\newcommand{\secondbest}[1]{\textit{#1}}
+\newcommand{\na}{--}
+```
+
+This keeps the markup readable and makes it easy to change emphasis rules later.
+
 ## Typical use cases
 
 - thesis result tables
