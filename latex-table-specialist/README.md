@@ -222,7 +222,60 @@ ID   Parameter permutations    Performance compared to older method
 
 ---
 
-## 7. 如果你写的是毕业论文，我推荐这样配
+## 7. You can also describe the table by rows and columns
+
+This skill supports planning a table without writing LaTeX first.
+
+You can directly describe:
+
+- what goes in the rows
+- what goes in the columns
+- which columns belong to the same grouped header
+- which values should be bold or italic
+
+For example:
+
+```text
+This table:
+- Rows are different conditions: Synthetic threshold 0.50, Synthetic threshold 0.90, Original cDNA baseline, Dorado baseline
+- Columns are different metrics: Precision, Recall, Concordance
+- Synthetic correction and Paired real-data should be grouped headers
+- Missing cells should use --
+- Best values should be bold, second-best values should be italic
+```
+
+Or use a stable template:
+
+```text
+Table spec:
+- Rows:
+- Columns:
+- Column groups:
+- Row groups:
+- Missing value style:
+- Best value style:
+- Second-best style:
+- Notes:
+```
+
+Example:
+
+```text
+Table spec:
+- Rows: Baseline, Evo2-7B arbitration, Evo2-40B arbitration
+- Columns: Concordance, Precision, Recall
+- Column groups: Real-data = Concordance; Synthetic correction = Precision + Recall
+- Missing value style: --
+- Best value style: bold
+- Second-best style: italic
+- Notes: Use mmmeri-grouped-metrics
+```
+
+This makes it easy to turn a conceptual table plan into LaTeX quickly.
+
+---
+
+## 8. 如果你写的是毕业论文，我推荐这样配
 
 1. 名词、参数、组件说明：`mmmeri-two-column`
 2. 稍正式的小表：`mmmeri-two-column-split`
@@ -233,7 +286,7 @@ ID   Parameter permutations    Performance compared to older method
 
 ---
 
-## 8. 现在最实用的一句话
+## 9. 现在最实用的一句话
 
 如果你懒得选，你以后可以直接说：
 

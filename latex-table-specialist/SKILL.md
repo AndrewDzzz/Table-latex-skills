@@ -69,6 +69,49 @@ description: Create beautiful, publication-ready LaTeX tables, and also rewrite,
    - 数值精度统一
    - 表头层次清楚
 
+## Structured table description input
+
+This skill should explicitly support row/column-first table planning.
+
+If the user does not provide LaTeX code and instead describes the desired table structure, interpret the request through a structured description such as:
+
+- `Rows:` what appears in the rows
+- `Columns:` what appears in the columns
+- `Column groups:` higher-level grouped headers above columns
+- `Row groups:` grouped row blocks or multirow sections
+- `Cells:` special cell content or overrides
+- `Missing value style:` how empty cells should be shown, such as `--` or `N/A`
+- `Best value style:` how to mark the best comparable value
+- `Second-best style:` how to mark the second-best comparable value
+- `Notes:` table notes or extra formatting instructions
+
+Natural-language requests such as:
+
+- “put these conditions in the rows”
+- “put these metrics in the columns”
+- “add one grouped header above these columns”
+- “leave missing cells as --”
+
+should be mapped into the same structured interpretation flow instead of requiring the user to write LaTeX first.
+
+## Recommended user template
+
+Prefer supporting the following structure directly:
+
+```text
+Table spec:
+- Rows:
+- Columns:
+- Column groups:
+- Row groups:
+- Missing value style:
+- Best value style:
+- Second-best style:
+- Notes:
+```
+
+If the user provides a partial version of this template, continue with reasonable assumptions instead of blocking.
+
 ## 美化硬规则
 
 - 不要默认使用 `|` 和 `\hline`
@@ -89,6 +132,8 @@ description: Create beautiful, publication-ready LaTeX tables, and also rewrite,
 - 完整 LaTeX 表格代码
 - 如需改文件，则直接编辑文件
 - 如有假设，只在结尾补一句
+
+When the user describes the table through `Rows / Columns / Column groups`, preserve that structure clearly in the final layout rather than transforming it into a harder-to-read arrangement.
 
 ## 歧义处理
 
